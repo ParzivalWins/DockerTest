@@ -1,15 +1,25 @@
+#FROM ubuntu
+
+#ADD . /app
+
+#RUN apt-get update
+#RUN apt-get upgrade -y
+# we should remove ssh and mysql, and use
+# separate container for database 
+#RUN apt-get install -y nodejs  # ssh mysql
+#RUN cd /app && npm install
 FROM ubuntu
 
 ADD . /app
 
-RUN apt-get update
-RUN apt-get upgrade -y
-# we should remove ssh and mysql, and use
-# separate container for database 
-RUN apt-get install -y nodejs  # ssh mysql
-RUN cd /app && npm install
+RUN apt-get update \
+    && apt-get install -y nodejs \
+    && cd /app \
+    && npm install
 
 CMD npm start
+
+#CMD npm start
 #RUN apt-get install -y nodejs ssh mysql
 #RUN cd /app && npm install
 
