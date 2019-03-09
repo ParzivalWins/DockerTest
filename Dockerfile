@@ -10,12 +10,9 @@
 #RUN cd /app && npm install
 FROM ubuntu
 
+RUN apt-get update && apt-get install -y nodejs 
 ADD . /app
-
-RUN apt-get update \
-    && apt-get install -y nodejs \
-    && cd /app \
-    && npm install
+RUN cd /app && npm install
 
 CMD npm start
 
