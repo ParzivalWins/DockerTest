@@ -9,15 +9,14 @@
 #RUN apt-get install -y nodejs  # ssh mysql
 #RUN cd /app && npm install
 #FROM ubuntu:16.04 #version of ubuntu
-
 #RUN apt-get update && apt-get install -y nodejs 
 
 FROM node:7-alpine
 WORKDIR /app
-ADD . /app
+COPY . /app
 RUN npm install
-
-CMD ["npm", "start"]
+ENTRYPOINT ["./entrypoint.sh"]
+CMD ["start"]
 
  #&& rm -rf /var/lib/apt/lists/*
 #ADD . /app
