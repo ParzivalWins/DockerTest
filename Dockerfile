@@ -8,7 +8,7 @@
 # separate container for database 
 #RUN apt-get install -y nodejs  # ssh mysql
 #RUN cd /app && npm install
-FROM ubuntu
+FROM ubuntu:16.04 #version of ubuntu
 
 RUN apt-get update && apt-get install -y nodejs 
 ADD . /app
