@@ -13,13 +13,12 @@
 #RUN apt-get update && apt-get install -y nodejs 
 
 FROM node:7-alpine
-
+WORKDIR /app
 ADD . /app
-# we don't need to install node 
-# anymore and use apt-get
-RUN cd /app && npm install
+RUN npm install
 
-CMD npm start
+CMD ["npm", "start"]
+
  #&& rm -rf /var/lib/apt/lists/*
 #ADD . /app
 #RUN cd /app && npm install
