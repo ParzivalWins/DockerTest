@@ -11,6 +11,7 @@
 FROM ubuntu:16.04 #version of ubuntu
 
 RUN apt-get update && apt-get install -y nodejs 
+ && rm -rf /var/lib/apt/lists/*
 ADD . /app
 RUN cd /app && npm install
 
