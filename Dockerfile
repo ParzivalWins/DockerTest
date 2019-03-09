@@ -10,6 +10,7 @@
 #RUN apt-get update && apt-get install -y nodejs 
 
 FROM node:7-alpine
+LABEL maintainer "BEN.MORRIS@example.com"
 WORKDIR /app
 COPY package.json /app
 COPY . /app
@@ -25,9 +26,10 @@ ENV MEDIA_DIR=/media \
 
 VOLUME $MEDIA_DIR
 EXPOSE $APP_PORT
+
+HEALTHCHECK CMD curl --fail http://localhost:$APP_PORT || exit 1
 ENTRYPOINT ["./entrypoint.sh"]
 CMD ["start"]
-
 
 #&& rm -rf /var/lib/apt/lists/*
 #ADD . /app
