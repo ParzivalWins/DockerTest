@@ -11,7 +11,8 @@
 #FROM ubuntu:16.04 #version of ubuntu
 
 #RUN apt-get update && apt-get install -y nodejs 
-FROM node
+
+FROM node:7-alpine
 
 ADD . /app
 # we don't need to install node 
